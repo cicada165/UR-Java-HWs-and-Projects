@@ -1,0 +1,33 @@
+for (int i = 0; i<str.length(); i++) {
+				if(x.charAt(i)!=str.charAt(i)) {
+					if(x.charAt(i) == "0") {
+						//str goes left, push x to right
+						cur.left = new TrieNode(str);
+						cur.right = new TrieNode(x);
+						
+						cur.left.isleaf = true;
+						cur.right.isleaf = true;
+						break;
+					}else if (x.charAt(i) == "1") {
+						//str goes right, push x to left
+						cur.left = new TrieNode(x);
+						cur.right = new TrieNode(str);
+						
+						cur.left.isleaf = true;
+						cur.rigjt.isleaf = true;
+						break;
+					}
+				}else {
+					if(str.charAt(i)=="0") {
+						cur.left = new TrieNode('0');
+						cur = cur.left;
+						//Notice that there are no breaks, it keeps going down the tree
+					}else if (str.charAt(i)=="1") {
+						cur.right = new TrieNode('1');
+						cur=cur.right;
+						////Notice that there are no breaks, it keeps going down the tree
+						
+					}
+			}
+				
+			}
